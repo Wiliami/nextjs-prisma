@@ -1,5 +1,5 @@
 import { headers } from 'next/headers'
-import { admin } from './auth/permissions'
+import { admin } from '../../permissions'
 import { authClient } from '../lib/auth-client'
 import { auth } from '../lib/auth'
 import { redirect } from 'next/navigation'
@@ -8,6 +8,7 @@ export default async function App() {
     const session = await auth.api.getSession({
         headers: await headers()
     })
+    console.log(session)
 
     if(!session) {
         return <div>Not authenticated</div>
