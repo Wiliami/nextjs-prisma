@@ -6,7 +6,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
-import { authClient } from '../app/lib/auth-client'
+import { authClient } from '../lib/auth-client'
 
 import { Button } from '@/src/components/ui/button'
 import { Input } from '@/src/components/ui/input'
@@ -210,7 +210,7 @@ export function SignupForm() {
   
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Já possui uma conta?{' '}
-              <a href="/sign-in" className="font-semibold text-green-600 hover:text-green-500">
+              <a href="/signin" className="font-semibold text-green-600 hover:text-green-500">
                 Login
               </a>
             </p>

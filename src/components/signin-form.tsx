@@ -53,7 +53,7 @@ export function SiginForm() {
         },
         onError: (ctx) => {
           console.log('Erro ao tentar logar')
-          console.log(ctx.error.message)
+          console.log('Mensagem de erro: ', ctx)
         }
       })
     }
@@ -149,7 +149,7 @@ export function SiginForm() {
   
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Ainda não tem conta?{' '}
-              <a href="/sign-up" className="font-semibold text-green-600 hover:text-green-500">
+              <a href="/signup" className="font-semibold text-green-600 hover:text-green-500">
                 Criar conta
               </a>
             </p>

@@ -4,26 +4,26 @@ import { auth } from '@/src/lib/auth'
 
 export async function POST(req: NextRequest) {
     try {
-        const session = auth.api.getSession({
-            headers: req.headers
-        });
+        // const session = auth.api.getSession({
+        //     headers: req.headers
+        // });
 
-        if(!session) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        }
+        // if(!session) {
+        //     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        // }
 
         const { name, email, role } = await req.json()
 
         if(!name || !email || !role) {
             return NextResponse.json(
                 { error: 'Campos obrigatórios' },
-                { status: 400 }  
+                { status: 400 }
             )
         }
 
         const user = await prisma.user.create({
             data: {
-                id: crypto.randomUUID(), 
+                id: crypto.randomUUID(),
                 name,
                 email,
                 role
@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
                 { status: 400 }
             )
         }
-    
+
         return NextResponse.json(
             { err: 'Erro interno do servidor' },
             { status: 500 }
@@ -56,12 +56,12 @@ export async function GET(req: NextRequest) {
         // const session = await auth.api.getSession({
         //     headers: req.headers,
         // });
-        
+
         // if (!session) {
         //     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
         // }
         const users = await prisma.user.findMany();
-        
+
         return NextResponse.json(users);
 
     } catch (error) {
