@@ -2,11 +2,24 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name": "Erick Rafael",
-    "email": "teste.dev2@gmail.com",
+    "name": "Bob",
+    "email": "bob@gmail.com",
     "role": "admin"
 }
+
 
 ###
 GET http://localhost:3000/api/users
 
+
+###
+PUT http://localhost:3000/api/users/TfiJhC1qMUUueX1AVQhIx6Id0DoNbUSg
+Content-Type: application/json
+
+{
+    "role": "admin"
+}
+
+
+###
+DELETE http://localhost:3000/api/users/id

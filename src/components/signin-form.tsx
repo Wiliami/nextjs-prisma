@@ -56,6 +56,8 @@ export function SiginForm() {
           console.log('Mensagem de erro: ', ctx)
         }
       })
+
+      console.log(data)
     }
 
     return (

@@ -1,8 +1,6 @@
 import { headers } from 'next/headers'
-import { admin } from '../../permissions'
-import { authClient } from '../lib/auth-client'
 import { auth } from '../lib/auth'
-import { redirect } from 'next/navigation'
+import { Button } from '@/src/components/ui/button'
 
 export default async function App() {  
     const session = await auth.api.getSession({
@@ -14,14 +12,14 @@ export default async function App() {
         return <div>Not authenticated</div>
     }
 
-
-    const { data, error } = await authClient.admin.hasPermission({
-        userId: 'session.user.id', // Required
-        role: 'admin',
-        permission: { campaign: ["view"] },
-    })
-
     return (
-        <h1>Home</h1>
+        <>
+            <div className='text-center'>
+                <h1>Seja bem-vindo(a), {session.user.name}</h1>
+                <Button className='bg-orange-700'>
+                    Sair
+                </Button>
+            </div>
+        </>
     )
 }
