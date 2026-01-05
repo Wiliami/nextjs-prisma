@@ -7,11 +7,9 @@ Content-Type: application/json
     "role": "admin"
 }
 
-
 ###
 GET http://localhost:3000/api/users
 Cookie: better-auth.session_token=M6rrPTE4lQ6aeS4XjjiphXOrmyxBrTZF.QIvN2Tb0otYIZkVlB8xIqAnKNkXNzuz4iQrXarFkGQY%3D
-
 
 ###
 PUT http://localhost:3000/api/users/TfiJhC1qMUUueX1AVQhIx6Id0DoNbUSg
@@ -24,15 +22,12 @@ Content-Type: application/json
 }
 
 ###
-
-
 PATCH  http://localhost:3000/api/users/id
 Content-Type: application/json
 
 {
     "role": "admin"
 }
-
 
 ###
 DELETE http://localhost:3000/api/users/id
