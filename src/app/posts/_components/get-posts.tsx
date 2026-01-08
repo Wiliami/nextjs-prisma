@@ -1,4 +1,5 @@
 import { cacheLife } from 'next/cache'
+import { Posts } from '@/types/schemas'  
 
 export async function FetchPosts() {
     "use cache"
@@ -9,8 +10,8 @@ export async function FetchPosts() {
 
     return (
         <ul>
-            { posts.map(post => (
-                <li key={post.id}>{post.title}</li>
+            { posts.map(({ id, title }: Posts) => (
+                <li key={id}>{title}</li>
             ))}
         </ul>
     )

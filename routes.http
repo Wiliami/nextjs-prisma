@@ -22,11 +22,11 @@ Content-Type: application/json
 }
 
 ###
-PATCH  http://localhost:3000/api/users/id
+PATCH  http://localhost:3000/api/users/ds8Uq6u16qJPibvqL5SZXNogRCkl7EbO
 Content-Type: application/json
 
 {
-    "role": "admin"
+    "role": "designer"
 }
 
 ###

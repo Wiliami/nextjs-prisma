@@ -1,6 +1,6 @@
 import { headers } from 'next/headers'
-import { auth } from '../lib/auth'
-import { Button } from '@/src/components/ui/button'
+import { auth } from '@/lib/auth'
+import { Button } from '@/components/ui/button'
 
 export default async function App() {  
     const session = await auth.api.getSession({

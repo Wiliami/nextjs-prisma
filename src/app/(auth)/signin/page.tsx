@@ -1,7 +1,7 @@
 "use client"
 
-import { authClient } from '../../../lib/auth-client'
-import { SiginForm } from '../../../components/signin-form';
+import { authClient } from '@/lib/auth-client'
+import { SiginForm } from '@/components/signin-form';
 import { redirect } from 'next/navigation'
 
 export default function SignInPage() {
