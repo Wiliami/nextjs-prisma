@@ -1,11 +1,16 @@
-import { Suspense } from 'react';
-import { FetchPosts } from './_components/get-posts'
+import { prisma } from "@/lib/prisma"
 
-// Testing feature cache
 export default async function Posts() {
+    const posts = await prisma.post.findMany()
+
     return (
-        <Suspense fallback={<div>Carregando posts...</div>}>
-            <FetchPosts />
-        </Suspense>
+        <>
+            <h1><strong>Meus posts</strong></h1>
+            <ul>
+                {posts.map(post => 
+                    <li>{post.title}</li>
+                )}
+            </ul>
+        </>
     )
 }

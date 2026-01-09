@@ -4,13 +4,13 @@ import { auth } from '@/lib/auth'
 
 export async function POST(req: NextRequest) {
     try {
-        // const session = auth.api.getSession({
-        //     headers: req.headers
-        // });
+        const session = auth.api.getSession({
+            headers: req.headers
+        });
 
-        // if(!session) {
-        //     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        // }
+        if(!session) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
 
         const { name, email, role } = await req.json()
 
