@@ -1,31 +1,28 @@
 "use client"
 
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Eye, EyeOff, Loader2 } from "lucide-react"
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Eye, EyeOff, Loader2 } from "lucide-react"
 import { authClient } from '@/lib/auth-client'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 
-const signinSchema = z
-    .object({
-      email: z.email({ message: "Email inválido" }),
-      password: z.string().min(8, { message: "A senha deve ter pelo menos 8 caracteres" }),
-    });
+const signinSchema = z.object({
+    email: z.email({ message: "Email inválido" }),
+    password: z.string().min(8, { message: "A senha deve ter pelo menos 8 caracteres" }),
+});
 
 type SigInFormValues = z.infer<typeof signinSchema>
 
-
 export function SiginForm() {
-
     const [showPassword, setShowPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
-
 
     const form = useForm<SigInFormValues>({
       resolver: zodResolver(signinSchema),
@@ -37,16 +34,11 @@ export function SiginForm() {
 
 
     async function onSubmit(formData: SigInFormValues) {
-      console.log(formData)
-
-      
       const { data, error } = await authClient.signIn.email({
         email: formData.email,
         password: formData.password
       }, {
-        onRequest: (ctx) => {
-          
-        },
+        onRequest: (ctx) => {},
         onSuccess: (ctx) => {
           console.log("LOGADO: ", ctx)
           router.replace("/dashboard")
@@ -62,14 +54,6 @@ export function SiginForm() {
 
     return (
         <>
-        {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             {/* <img
@@ -152,7 +136,7 @@ export function SiginForm() {
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Ainda não tem conta?{' '}
               <a href="/signup" className="font-semibold text-green-600 hover:text-green-500">
-                Criar conta
+                Criar conta 
               </a>
             </p>
           </div>
