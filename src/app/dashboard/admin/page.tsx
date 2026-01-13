@@ -5,12 +5,8 @@ export default async function PanelAdmin() {
     const session = await auth.api.getSession({
         headers: await headers()
     })
-
-    if(!session) {
-        return <div>Not authenticated</div>
-    }
     
-    if(session.user.role === 'admin') {
+    if(session?.user.role === 'admin') {
         return <h1>Painel Administrativo</h1>
     }   
 

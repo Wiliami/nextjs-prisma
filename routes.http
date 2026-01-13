@@ -13,7 +13,7 @@ Cookie: better-auth.session_token=M6rrPTE4lQ6aeS4XjjiphXOrmyxBrTZF.QIvN2Tb0otYIZ
 
 
 ###
-PUT http://localhost:3000/api/users/TfiJhC1qMUUueX1AVQhIx6Id0DoNbUSg
+PUT http://localhost:3000/api/users/ds8Uq6u16qJPibvqL5SZXNogRCkl7EbO
 Content-Type: application/json
 
 {

@@ -1,20 +1,14 @@
-import { admin } from '../../auth/permissions'
+import EditCampaign from './_components/editCampaign' 
+import { AlertMessage } from '@/components/alertMessage'; 
+import { verifyAuth } from '@/auth/verifyAuth'
 
-export default function CampaignsPage() {
-    if(admin.statements.campaign[1] === 'view') {
-        return (
-            <>
-                <h1>Título da Campanha: Promoção de verão</h1>
-                <p>Cliente: Filipe Deschamps</p>
-                <span>Status: Ativa</span>
-                <p>Data cadastro: 02/01/2026</p>
-                <p>Data atualização: 05/01/2026</p>
-                <button className="bg-amber-300 rounded-4xl font-bold">
-                    Criar campanha
-                </button>
-            </>
-        )
+export default async function CampaignsPage() {
+    const session = await verifyAuth();
+
+    if(session?.user.role === 'designer' || session?.user.role === 'admin') {
+        return <EditCampaign />
     }
-    return 'Esta página precisa de autorização.'
-    
+
+    return <AlertMessage />
+
 }
