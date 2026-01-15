@@ -6,5 +6,7 @@ export async function verifyAuth() {
         headers: await headers()
     });
 
-    return session;
+    return {
+        session
+    };
 }
