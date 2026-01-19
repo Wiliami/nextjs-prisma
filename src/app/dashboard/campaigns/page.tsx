@@ -1,9 +1,12 @@
 import EditCampaign from './_components/editCampaign' 
 import { AlertMessage } from '@/components/alertMessage'; 
-import { verifyAuth } from '@/auth/verifyAuth'
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 export default async function CampaignsPage() {
-    const session = await verifyAuth();
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
 
     if(session?.user.role === 'designer' || session?.user.role === 'admin') {
         return <EditCampaign />

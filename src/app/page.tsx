@@ -1,8 +1,11 @@
+import { auth } from '@/lib/auth'
 import { Button } from '../components/ui/button'
-import { verifyAuth } from './auth/verifyAuth'
+import { headers } from 'next/headers'
 
 export default async function App() {  
-    const session = await verifyAuth()
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
 
     if(!session) return <div>Usuário não autenticado.</div>
 

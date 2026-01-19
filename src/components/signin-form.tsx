@@ -11,6 +11,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { authClient } from '@/lib/auth-client'
+import { toast } from 'sonner'
 
 const signinSchema = z.object({
     email: z.email({ message: "Email inválido" }),
@@ -45,11 +46,13 @@ export function SiginForm() {
         },
         onError: (ctx) => {
           console.log('Erro ao tentar logar')
-          console.log('Mensagem de erro: ', ctx)
+          if(ctx.error?.message === 'Invalid email or password')  {
+            toast.error('Usuário não encontrado. Use outro e-mail.')
+          }
         }
       })
 
-      console.log(data)
+      console.log(error, data)
     }
 
     return (
