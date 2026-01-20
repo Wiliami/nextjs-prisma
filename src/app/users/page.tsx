@@ -1,14 +1,17 @@
+import { headers } from 'next/headers';
 import { prisma } from '../../lib/prisma';
-import { verifyAuth } from '../auth/verifyAuth';
+import { auth } from '@/lib/auth';
 
 export default async function Users() {
-    const { session } = await verifyAuth();
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
     const userId = session?.user.id
     console.log('ID: ', userId)
 
     const getAuthor = await prisma.user.findUnique({
         where: {
-            id: '1'
+            id: 'ds8Uq6u16qJPibvqL5SZXNogRCkl7EbO'
         },
         include: {
             posts: true
