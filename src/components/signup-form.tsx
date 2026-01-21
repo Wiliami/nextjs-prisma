@@ -6,11 +6,11 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Eye, EyeOff, Loader2 } from "lucide-react"
-import { authClient } from '@/lib/auth-client'
-
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { authClient } from '@/lib/auth-client'
+import { toast } from "sonner"
 
 const signupSchema = z
   .object({
@@ -26,14 +26,12 @@ const signupSchema = z
 
   type SignupFormValues = z.infer<typeof signupSchema>
 
-
 export function SignupForm() {
 
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
     const router = useRouter()
-
 
     const form = useForm<SignupFormValues>({
       resolver: zodResolver(signupSchema),
@@ -45,11 +43,7 @@ export function SignupForm() {
       },
     })
 
-
     async function onSubmit(formData: SignupFormValues) {
-      console.log(formData)
-
-      
       const { data, error } = await authClient.signUp.email({
         name: formData.name,
         email: formData.email,
@@ -63,8 +57,10 @@ export function SignupForm() {
           router.replace("/dashboard")
         },
         onError: (ctx) => {
-          console.log('Erro ao criar conta')
-          console.log(ctx.error.message)
+          // console.log('Erro ao criar conta')
+          if(ctx.error.message === "User already exists. Use another email.") {
+            toast.error('Usuário já possui conta. Use outro e-mail.')
+          }
         }
       })
     }
@@ -81,12 +77,9 @@ export function SignupForm() {
         */}
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            {/* <img
-              alt="Your Company"
-              src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-              className="mx-auto h-10 w-auto"
-            /> */}
-            <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">
+            {/* Logo App */}
+        
+            <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-black">
               Criar conta
             </h2>
             <p className="text-gray-400 text-center">Crie sua conta para começar.</p>
@@ -210,7 +203,7 @@ export function SignupForm() {
   
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Já possui uma conta?{' '}
-              <a href="/signin" className="font-semibold text-green-600 hover:text-green-500">
+              <a href="/sign-in" className="font-semibold text-green-600 hover:text-green-500">
                 Login
               </a>
             </p>

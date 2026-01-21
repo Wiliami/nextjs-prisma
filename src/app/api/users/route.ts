@@ -53,15 +53,13 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
     try {
-        const session = await auth.api.getSession({
-            headers: req.headers,
-        });
+        // const session = await auth.api.getSession({
+        //     headers: req.headers,
+        // });
 
-        console.log('Sessão:', session)
-
-        if (!session) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-        }
+        // if (!session) {
+        //     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        // }
 
         // if(session.user.role !== 'admin') {
         //     return NextResponse.json(

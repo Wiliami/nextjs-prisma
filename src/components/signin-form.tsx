@@ -47,7 +47,7 @@ export function SiginForm() {
         onError: (ctx) => {
           console.log('Erro ao tentar logar')
           if(ctx.error?.message === 'Invalid email or password')  {
-            toast.error('Usuário não encontrado. Use outro e-mail.')
+            toast.warning('E-mail ou senha inválida.')
           }
         }
       })
@@ -138,7 +138,7 @@ export function SiginForm() {
   
             <p className="mt-10 text-center text-sm/6 text-gray-500">
               Ainda não tem conta?{' '}
-              <a href="/signup" className="font-semibold text-green-600 hover:text-green-500">
+              <a href="/sign-up" className="font-semibold text-green-600 hover:text-green-500">
                 Criar conta 
               </a>
             </p>

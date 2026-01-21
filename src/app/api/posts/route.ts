@@ -38,8 +38,13 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
     try {
-        const posts = await prisma.post.findMany();
 
+        const posts = await prisma.post.findMany({
+            include: {
+                author: true
+            }
+        })
+        
         return NextResponse.json(posts);
 
     } catch (error) {

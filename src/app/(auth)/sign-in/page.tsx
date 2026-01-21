@@ -7,9 +7,9 @@ import { redirect } from 'next/navigation'
 export default function SignInPage() {
     const { data } = authClient.useSession();
 
-    if(data?.session) {
-        redirect('/dashboard')
-    }
+    // if(data?.session) {
+    //     redirect('/dashboard')
+    // }
     
     return <SiginForm />
 }
