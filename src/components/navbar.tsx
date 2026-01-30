@@ -83,10 +83,10 @@ export default function Navbar() {
               >
                 <MenuItem>
                   <a
-                    href="#"
+                    href="/account"
                     className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:outline-hidden"
                   >
-                    Your profile
+                    Minha conta
                   </a>
                 </MenuItem>
                 <MenuItem>
@@ -94,7 +94,7 @@ export default function Navbar() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:outline-hidden"
                   >
-                    Settings
+                    Configurações
                   </a>
                 </MenuItem>
                 <MenuItem>
@@ -102,7 +102,7 @@ export default function Navbar() {
                     href="#"
                     className="block px-4 py-2 text-sm text-gray-300 data-focus:bg-white/5 data-focus:outline-hidden"
                   >
-                    Sign out
+                    Sair
                   </a>
                 </MenuItem>
               </MenuItems>
