@@ -2,13 +2,13 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-    "name": "Bob",
-    "email": "bob@gmail.com",
-    "role": "admin"
+    "name": "Pedro",
+    "email": "pedrinho@gmail.com",
+    "role": "editor"
 }
 
 ### Users
-GET http://localhost:3000/api/users/ds8Uq6u16qJPibvqL5SZXNogRCkl7EbO
+GET http://localhost:3000/api/users
 Cookie: better-auth.session_token=M6rrPTE4lQ6aeS4XjjiphXOrmyxBrTZF.QIvN2Tb0otYIZkVlB8xIqAnKNkXNzuz4iQrXarFkGQY%3D
 
 

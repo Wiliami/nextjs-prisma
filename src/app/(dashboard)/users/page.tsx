@@ -1,11 +1,19 @@
 export default async function Users() {
     const response = await fetch('http://localhost:3000/api/users')
 
-    if(!response.ok) {
-        throw new Error(`Erro ao buscar usuários: ${response.statusText}`)
-    }
-        
-    const users = await response.json()
+import { useQuery } from '@tanstack/react-query'
+import { getUsers } from '../../../functions/get-users'
+
+export default function Users() {
+    const { data, error, isPending } = useQuery({
+        queryKey: ['users'],
+        queryFn: getUsers
+    })
+
+    console.log(data)
+
+    if (isPending) return 'Loading...'
+    if (error) return 'An error has occurred: ' + error.message
 
     return (
         <ul>
@@ -18,4 +26,5 @@ export default async function Users() {
             )}
         </ul>
     )
+   
 }

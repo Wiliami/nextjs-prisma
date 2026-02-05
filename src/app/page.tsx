@@ -1,3 +1,10 @@
+import AuthNavbar from '../components/authNavbar' 
+
 export default function App() {  
-    return <h1>Home</h1>
+    return (
+        <>
+            <AuthNavbar />
+            <h1>Home</h1>
+        </>
+    )
 }
