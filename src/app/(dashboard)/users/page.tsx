@@ -1,30 +1,10 @@
 export default async function Users() {
     const response = await fetch('http://localhost:3000/api/users')
-
-import { useQuery } from '@tanstack/react-query'
-import { getUsers } from '../../../functions/get-users'
-
-export default function Users() {
-    const { data, error, isPending } = useQuery({
-        queryKey: ['users'],
-        queryFn: getUsers
-    })
-
-    console.log(data)
-
-    if (isPending) return 'Loading...'
-    if (error) return 'An error has occurred: ' + error.message
+    const users = await response.json()
 
     return (
         <ul>
-            {users.map((user: any) => (
-                <>
-                    <li key={user.id}><strong>Nome: </strong>{user.name}</li> 
-                    <p><strong>E-mail: </strong>{user.email}</p><b></b>
-                </>
-                )
-            )}
+            {users.map((user: any) => <li>{user.name}</li> )}
         </ul>
     )
-   
 }
