@@ -15,6 +15,3 @@ export async function getUsers() {
         console.log('Erro ao buscar dados: ', error)
     }
 }
-
-
-getUsers()
