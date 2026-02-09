@@ -6,12 +6,11 @@ import { usersOptions } from './user'
 
 export function UserInfo() {
   const { data } = useSuspenseQuery(usersOptions)
+  console.log('Meu dados:', data)
 
   return (
-    <div>
-      <figure>
-        <h2>I'm {data.name}</h2>
-      </figure>
-    </div>
+    <ul>
+      {data.map((user: any) => <li>{user.name}</li>)}
+    </ul>
   )
 }
