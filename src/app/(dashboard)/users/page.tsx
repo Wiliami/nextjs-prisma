@@ -1,10 +1,21 @@
-export default async function Users() {
-    const response = await fetch('http://localhost:3000/api/users')
-    const users = await response.json()
+import React from 'react'
+import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
+import { usersOptions } from './user'
+import { getQueryClient } from '../../get-query-client'
+import { UserInfo } from './user-info'
+
+
+export default  function Users() {
+    const queryClient = getQueryClient()
+
+    void queryClient.prefetchQuery(usersOptions)
 
     return (
-        <ul>
-            {users.map((user: any) => <li>{user.name}</li> )}
-        </ul>
+        <>
+            <h1>User info</h1>
+            <HydrationBoundary state={dehydrate(queryClient)}>
+                <UserInfo />
+            </HydrationBoundary>
+        </>
     )
 }
