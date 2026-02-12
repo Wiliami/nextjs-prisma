@@ -29,6 +29,34 @@
       "title": "Nextjs",
       "views": 200,
       "content": "The React Framework for the Web"
+    },
+    {
+      "id": "9a6f",
+      "title": "React Query"
+    },
+    {
+      "id": "20b0",
+      "title": "Remix"
+    },
+    {
+      "id": "d16e",
+      "title": "ES6: Ecmascript 2015"
+    },
+    {
+      "id": "d12c",
+      "title": "Server actions"
+    },
+    {
+      "id": "0bd8",
+      "title": "Developer Full-stack"
+    },
+    {
+      "id": "2db9",
+      "title": "Backend developer"
+    },
+    {
+      "id": "1b1d",
+      "title": "ECMAScript 2015"
     }
   ],
   "teams": [
