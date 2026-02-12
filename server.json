@@ -2,6 +2,7 @@
   "tags": [
     {
       "id": "1",
+<<<<<<< HEAD
       "slug": "React"
     },
     {
@@ -47,6 +48,21 @@
     {
       "id": "bd58",
       "slug": "serveless"
+=======
+      "name": "React"
+    },
+    {
+      "id": "2",
+      "name": "NextJS"
+    },
+    {
+      "id": "3",
+      "name": "Tailwind"
+    },
+    {
+      "id": "4",
+      "name": "Shadcn"
+>>>>>>> ec220928b1b7c142a80f684ee5bbafc5b3bfdbc3
     }
   ],
   "posts": [
@@ -61,6 +77,83 @@
       "title": "Nextjs",
       "views": 200,
       "content": "The React Framework for the Web"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "9a6f",
+      "title": "React Query"
+    },
+    {
+      "id": "20b0",
+      "title": "Remix"
+    },
+    {
+      "id": "d16e",
+      "title": "ES6: Ecmascript 2015"
+    },
+    {
+      "id": "d12c",
+      "title": "Server actions"
+    },
+    {
+      "id": "0bd8",
+      "title": "Developer Full-stack"
+    },
+    {
+      "id": "2db9",
+      "title": "Backend developer"
+    },
+    {
+      "id": "1b1d",
+      "title": "ECMAScript 2015"
+    }
+  ],
+  "teams": [
+    {
+      "id": "1",
+      "team": "Manchester City"
+    },
+    {
+      "id": "2",
+      "team": "Liverpool"
+    },
+    {
+      "id": "5b6a",
+      "team": "New Castle"
+    },
+    {
+      "id": "16ae",
+      "team": "Manchester United"
+    },
+    {
+      "id": "8321",
+      "team": "West Ham"
+    },
+    {
+      "id": "db42",
+      "team": "Arsenal"
+    },
+    {
+      "id": "78c1",
+      "team": "Tottenham"
+    },
+    {
+      "id": "06cd",
+      "team": "Chelsea"
+    },
+    {
+      "id": "e65b",
+      "team": "Fullham"
+    },
+    {
+      "id": "98c9",
+      "team": "Sunderland"
+    },
+    {
+      "id": "67a9",
+      "team": "dwdqdq"
+>>>>>>> ec220928b1b7c142a80f684ee5bbafc5b3bfdbc3
     }
   ]
 }
