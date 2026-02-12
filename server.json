@@ -1,22 +1,80 @@
 {
-    "tags": [
-        { "id": "1", "name": "React" },
-        { "id": "2", "name": "NextJS" },
-        { "id": "3", "name": "Tailwind" },
-        { "id": "4", "name": "Shadcn" }
-    ],
-    "posts": [
-        { 
-            "id": "1", 
-            "title": "Drizzle vs PrismaORM", 
-            "views": 100, 
-            "content": "Drizzle é a melhor ferramenta de ORM do NodeJS"
-        },
-        { 
-            "id": "2",
-            "title": "Nextjs",
-            "views": 200,
-            "content": "The React Framework for the Web"
-        }
-    ]
+  "tags": [
+    {
+      "id": "1",
+      "name": "React"
+    },
+    {
+      "id": "2",
+      "name": "NextJS"
+    },
+    {
+      "id": "3",
+      "name": "Tailwind"
+    },
+    {
+      "id": "4",
+      "name": "Shadcn"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Drizzle vs PrismaORM",
+      "views": 100,
+      "content": "Drizzle é a melhor ferramenta de ORM do NodeJS"
+    },
+    {
+      "id": "2",
+      "title": "Nextjs",
+      "views": 200,
+      "content": "The React Framework for the Web"
+    }
+  ],
+  "teams": [
+    {
+      "id": "1",
+      "team": "Manchester City"
+    },
+    {
+      "id": "2",
+      "team": "Liverpool"
+    },
+    {
+      "id": "5b6a",
+      "team": "New Castle"
+    },
+    {
+      "id": "16ae",
+      "team": "Manchester United"
+    },
+    {
+      "id": "8321",
+      "team": "West Ham"
+    },
+    {
+      "id": "db42",
+      "team": "Arsenal"
+    },
+    {
+      "id": "78c1",
+      "team": "Tottenham"
+    },
+    {
+      "id": "06cd",
+      "team": "Chelsea"
+    },
+    {
+      "id": "e65b",
+      "team": "Fullham"
+    },
+    {
+      "id": "98c9",
+      "team": "Sunderland"
+    },
+    {
+      "id": "67a9",
+      "team": "dwdqdq"
+    }
+  ]
 }
