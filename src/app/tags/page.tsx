@@ -1,10 +1,15 @@
-export default async function tags() {
-    const response = await fetch('http://localhost:3000/tags')
-    const tags = await response.json()
+import { AddTag } from "./add-tag";
+import { Tags } from "./tags";
+import { Suspense } from "react";
 
- return (
-    <ul>
-        {tags.map((tag: any) => <li id={tag.id}>{tag.name}</li>)}
-    </ul>
- )
+
+export default function tags() {
+    return (
+        <div>
+            <Suspense fallback={<p>Carregando tags...</p>}>
+                <Tags />
+            </Suspense>
+            <AddTag />
+        </div>
+    )
 }

@@ -1,22 +1,66 @@
 {
-    "tags": [
-        { "id": "1", "name": "React" },
-        { "id": "2", "name": "NextJS" },
-        { "id": "3", "name": "Tailwind" },
-        { "id": "4", "name": "Shadcn" }
-    ],
-    "posts": [
-        { 
-            "id": "1", 
-            "title": "Drizzle vs PrismaORM", 
-            "views": 100, 
-            "content": "Drizzle é a melhor ferramenta de ORM do NodeJS"
-        },
-        { 
-            "id": "2",
-            "title": "Nextjs",
-            "views": 200,
-            "content": "The React Framework for the Web"
-        }
-    ]
+  "tags": [
+    {
+      "id": "1",
+      "slug": "React"
+    },
+    {
+      "id": "2",
+      "slug": "NextJS"
+    },
+    {
+      "id": "3",
+      "slug": "Tailwind"
+    },
+    {
+      "id": "4",
+      "slug": "Shadcn"
+    },
+    {
+      "id": "9632",
+      "slug": "remix"
+    },
+    {
+      "id": "f480",
+      "slug": "vue"
+    },
+    {
+      "id": "4212",
+      "slug": "angular"
+    },
+    {
+      "id": "19a8",
+      "slug": "prisma"
+    },
+    {
+      "id": "4a9b",
+      "slug": "postgres"
+    },
+    {
+      "id": "7294",
+      "slug": "javascript"
+    },
+    {
+      "id": "5a1a",
+      "slug": "drizzele"
+    },
+    {
+      "id": "bd58",
+      "slug": "serveless"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "Drizzle vs PrismaORM",
+      "views": 100,
+      "content": "Drizzle é a melhor ferramenta de ORM do NodeJS"
+    },
+    {
+      "id": "2",
+      "title": "Nextjs",
+      "views": 200,
+      "content": "The React Framework for the Web"
+    }
+  ]
 }
