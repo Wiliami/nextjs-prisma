@@ -112,5 +112,27 @@
       "id": "67a9",
       "team": "dwdqdq"
     }
+  ],
+  "campaigns": [
+    {
+      "id": "1",
+      "name": "Black Friday Verão"
+    },
+    {
+      "id": "2",
+      "name": "Lançamento Loja Beaty Bella"
+    },
+    {
+      "id": "3",
+      "name": "Moda fashion 2026"
+    },
+     {
+      "id": "4",
+      "name": "Cache revalidate"
+    },
+    {
+      "id": "4",
+      "name": "Cache revalidation"
+    }
   ]
 }
