@@ -53,6 +53,18 @@
     {
       "id": "1b1d",
       "title": "ECMAScript 2015"
+    },
+    {
+      "id": "a1a6",
+      "title": "Angular JS"
+    },
+    {
+      "id": "f524",
+      "title": "Renderização no React"
+    },
+    {
+      "id": "0fe2",
+      "title": "Server Components"
     }
   ],
   "teams": [

@@ -11,7 +11,7 @@ export async function Posts() {
 
     return (
         <ul>
-            {posts.map((post: any) => <li id={post.id}>{post.title}</li>)}
+            {posts.map((post: any) => <li key={post.id}>{post.title}</li>)}
         </ul>
     )
 }

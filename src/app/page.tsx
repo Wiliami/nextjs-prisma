@@ -11,10 +11,12 @@ export default function App() {
 
     return (
         <>
+        <div className="w-screen h-screen bg-zinc-900">
             <AuthNavbar />
             <HydrationBoundary state={dehydrate(queryClient)}>
-                <h1>Home</h1>
+                <h1 className='text-white'>Home</h1>
             </HydrationBoundary>
+        </div>
         </>
     )
 }
