@@ -2,33 +2,29 @@
   "tags": [
     {
       "id": "1",
-      "name": "React"
+      "slug": "React"
     },
     {
       "id": "2",
-      "name": "NextJS"
+      "slug": "NextJS"
     },
     {
       "id": "3",
-      "name": "Tailwind"
+      "slug": "Tailwind"
     },
     {
       "id": "4",
-      "name": "Shadcn"
+      "slug": "Shadcn"
     }
   ],
   "posts": [
     {
       "id": "1",
-      "title": "Drizzle vs PrismaORM",
-      "views": 100,
-      "content": "Drizzle é a melhor ferramenta de ORM do NodeJS"
+      "title": "Drizzle vs PrismaORM"
     },
     {
       "id": "2",
-      "title": "Nextjs",
-      "views": 200,
-      "content": "The React Framework for the Web"
+      "title": "Nextjs"
     },
     {
       "id": "9a6f",
