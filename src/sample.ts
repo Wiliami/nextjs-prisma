@@ -1,27 +1,4 @@
-import { z } from 'zod'
-// var nome = 'Wiliamis'
-const nome = 'Wiliamis' 
 
-console.log(nome)
-const userSchema = z.object({
-    id: z.string().transform(id => Number(id)),
-    name: z.string(),
-    email: z.email()
-})
-
-const user = {
-    id: 1,
-    name: 'Wiliamis',
-    email: 'wiliamis.dev@gmail.com'
-}
-
-type userValues = z.infer<typeof userSchema>
-
-type userValuesInput = z.input<typeof userSchema>
-type userValuesOutput = z.output<typeof userSchema>
-
-function createUserInDatabase(user: userValues) {}
-createUserInDatabase(user)
 
 
 
@@ -48,3 +25,18 @@ createUserInDatabase(user)
 //  var testExpression = function() {
 //     console.log('Function expresssion') // somente a variável testExpression sofre hoisting
 //  }
+
+
+'use client'
+
+import { useState } from 'react'
+import { FormProvider } from "react-hook-form"
+
+export default function ProfilePage() {
+    const [activeTab, setActiveTab] = useState('profile')
+
+    {activeTab === 'profile' && (
+        /* render tab profile */
+        /* <h1>Profile Tab</h1> */
+    )}
+}
