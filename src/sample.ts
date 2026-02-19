@@ -25,18 +25,3 @@
 //  var testExpression = function() {
 //     console.log('Function expresssion') // somente a variável testExpression sofre hoisting
 //  }
-
-
-'use client'
-
-import { useState } from 'react'
-import { FormProvider } from "react-hook-form"
-
-export default function ProfilePage() {
-    const [activeTab, setActiveTab] = useState('profile')
-
-    {activeTab === 'profile' && (
-        /* render tab profile */
-        /* <h1>Profile Tab</h1> */
-    )}
-}
