@@ -9,7 +9,7 @@ export function UserInfo() {
 
   return (
     <ul>
-      {data.map((user: any) => <li id={user.id}>{user.name}</li>)}
+      {data.map((user: any) => <li key={user.id}>{user.name}</li>)}
     </ul>
   )
 }
