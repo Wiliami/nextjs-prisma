@@ -1,12 +1,16 @@
 export async function getUsers() {
-    const response = await fetch('http://localhost:3334/api/users')
+    try {
+        const response = await fetch('http://localhost:3334/api/users');
 
-    console.log(response.formData)
-    if(response.url !== 'http://localhost:3334/api/users') {
-        throw new Error(`URL da requisição incorreta.`)
+        if(!response.ok) {
+            throw new Error(`Erro ao buscar dados: ${response.statusText}`);
+        }
+
+        const users = await response.json();
+        return users;
+        
+    } catch (err) {
+        if(err instanceof Error ? err.message : String(err))
+        console.error('internal server error:', err)    
     }
-
-    if(!response.ok) throw new Error(`Erro ao buscar dados.`)
-    
-    return await response.json()
 }
