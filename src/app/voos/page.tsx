@@ -1,11 +1,15 @@
-export default async function Voos() {
-    const response = await fetch('http://localhost:3334/api/google-flights.ts')
-    const voos = await response.json()
+import { FormVoos } from "./form-voos";
 
-    console.log(voos)
+export default async function VoosPage() {
+    // const response = await fetch('http://localhost:3334/api/google-flights.ts');
+    // const voos = await response.json();
+
     return (
         <div>
-            Passagens áreas
+            <FormVoos />
         </div>
     );
 }
+
+
+
