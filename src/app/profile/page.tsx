@@ -1,4 +1,4 @@
-export default async function profile() {
+export default async function ProfilePage() {
     const response = await fetch('https://api.github.com/users/Wiliami')
     const profile = await response.json()
 
