@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 import { auth } from '@/lib/auth'
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
+import { Prisma } from '@/generated/prisma/client';
 
 export async function POST(req: NextRequest) {
     try {
@@ -34,18 +36,20 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json(user, { status: 201 });
 
-    } catch (err: any) {
+    } catch (err) {
         console.error('Erro ao cadastrar usuário:', err)
 
-        if(err.code === 'P2002') {
-            return NextResponse.json(
-                { err: 'E-mail já cadastrado' },
-                { status: 400 }
-            )
+        if(err instanceof Prisma.PrismaClientKnownRequestError) {
+            if(err.code === 'P2002') {
+                return NextResponse.json(
+                    { err: 'E-mail já existe.' },
+                    { status: 409 }
+                )
+            }
         }
 
         return NextResponse.json(
-            { err: 'Erro interno do servidor' },
+            { err: 'Internal server error' },
             { status: 500 }
         )
     }

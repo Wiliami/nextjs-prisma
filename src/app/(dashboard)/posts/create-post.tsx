@@ -14,7 +14,7 @@ export function CreatePost() {
         // delay 3
         await new Promise(resolve => setTimeout(resolve, 3000))
 
-        await fetch('http://localhost:3333/posts', {
+        await fetch('http://localhost:3335/posts', {
             method: 'POST',
             body: JSON.stringify({
                 title

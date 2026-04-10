@@ -1,9 +1,6 @@
 export async function getUsers() {
         const response = await fetch('https://localhost:3335/api/users');
+        const data = await response.json();
 
-        if(!response.ok) {
-            throw new Error(`Erro ao buscar dados: ${response.statusText}`);
-        }
-
-        return await response.json();
+        return data;     
 }

@@ -10,7 +10,6 @@ describe('/api/users route handler', () => {
     // Create a mock Request object if needed (e.g., for query parameters, body, headers)
     const mockRequest = new NextRequest('http://localhost/api/users', {
         method: 'GET',
-
     });
 
     // Invoke the handler function
@@ -19,6 +18,7 @@ describe('/api/users route handler', () => {
     // Assertions
     expect(response.status).toBe(200);
     const jsonResponse = await response.json();
+    
     expect(jsonResponse.message).toBe("Hello, world!");
   });
 });

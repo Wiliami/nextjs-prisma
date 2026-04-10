@@ -3,11 +3,14 @@ import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import { usersOptions } from './(dashboard)/users/user'
 import { getQueryClient } from '../app/get-query-client'
 import AuthNavbar from '../components/authNavbar' 
+import { Person } from '../functions/person'
 
 export default function App() {  
     const queryClient = getQueryClient()
 
     void queryClient.prefetchQuery(usersOptions) // Retirar a hidratação global para um arquivo específico
+
+    const person1 = new Person('Wiliamis', 28);
 
     return (
         <>
@@ -15,6 +18,7 @@ export default function App() {
             <AuthNavbar />
             <HydrationBoundary state={dehydrate(queryClient)}>
                 <h1 className='text-white'>Home</h1>
+                <p className='text-white'>{person1.intro()}</p>
             </HydrationBoundary>
         </div>
         </>
