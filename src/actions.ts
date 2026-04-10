@@ -1,14 +1,14 @@
 export async function handleCreateTag(formData: FormData) {
-  // pega o dados
+  // Entrada dos dados
   const tag = formData.get("tag");
 
-  // validar o dado
+  // Validar a tag
   if (!tag) {
     return;
   }
 
-  // enviar o dado para o banco de dados
-  await fecth("http://localhost:3000/tags", {
+  // Enviar p/ o database
+  await fetch("http://localhost:3000/tags", {
     method: "POST",
     body: JSON.stringify({
       tag,
