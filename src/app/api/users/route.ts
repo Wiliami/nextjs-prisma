@@ -3,37 +3,25 @@ import { prisma } from '@/lib/prisma'
 import { auth } from '@/lib/auth'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { Prisma } from '@/generated/prisma/client';
+import { createUser } from '@/functions/create-user'
 
 export async function POST(req: NextRequest) {
     try {
         const session = auth.api.getSession({
             headers: req.headers
         });
-
+    
         if(!session) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+            return NextResponse.json(
+                { error: 'Unauthorized' },
+                { status: 401 });
         }
 
         const { name, email, role } = await req.json()
 
-        if(!name || !email || !role) {
-            return NextResponse.json(
-                { error: 'Campos obrigatórios' },
-                { status: 400 }
-            )
-        }
-
-        const user = await prisma.user.create({
-            data: {
-                id: crypto.randomUUID(),
-                name,
-                email,
-                role
-            }
-        })
+        const user = await createUser(name, email, role);
 
         console.log('Usuário cadastrado com sucesso: ', user);
-
         return NextResponse.json(user, { status: 201 });
 
     } catch (err) {
