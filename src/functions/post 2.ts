@@ -114,3 +114,50 @@ class Utils {
 
 console.log(Utils.sum(1, 2));
 console.log(Utils.formatName('Wiliamis'))
+
+
+
+
+var nome = 'Wiliamis', idade = 28;
+
+function imprimeDados() {
+    console.log(nome + idade);
+}
+
+imprimeDados();
+
+/* Closures: funções que lembram do seu ambiente léxico(escopo) de criação */
+var valor1 = 'Valor 1';
+
+function f1() {
+    var valor2 = 'Valor 2';
+
+    function f2() {
+        var valor3 = 'Valor 3';
+
+        function f3() {
+            var valor4 = 'Valor 4';
+        }
+    }
+}
+
+function factoryCreateUser(name: string, age: string) {
+    let counter = 0;
+
+
+    return {
+        // methods and properties
+    }
+}
+
+
+
+
+// function Animal(nome: string) {
+//     this.nome = nome;
+// }
+
+
+// Animal.prototype.falar = function() {
+//     return this.nome + ' está falando.';
+// }

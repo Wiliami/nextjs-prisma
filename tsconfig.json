@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/components/signup-form.tss"  ],
+, "src/components/signup-form.tss", "src/functions/errors/base-error.ts"  ],
   "exclude": ["node_modules"]
 }

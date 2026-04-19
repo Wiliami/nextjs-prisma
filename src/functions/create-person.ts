@@ -1,32 +1,66 @@
 // Design Pattern - Factory
-function criaObjeto() {
-    let objeto = {}
+interface IPerson {
+    name?: string
+    lastName?: string
+    email?: string
+    age?: number
+    nickName?: string
+    fullName?: () => void
+}
+
+function criaObjeto(name: string, lastName: string) {
+    let objeto: IPerson = {};
+
+    objeto.name = name;
+    objeto.lastName = lastName;
+
+    const fullName = function() {
+        return `Nome completo: ${objeto.name} ${objeto.lastName}.`     
+    }
+
+    objeto.fullName = fullName;
 
     return objeto;
 }
 
-let pessoaA = criaObjeto(); // {} objeto em branco
-let pessoaB = criaObjeto (); // {} objeto em branco 
+function factoryPerson(name: string, lastName: string) {
+    let person: IPerson = {};
 
-pessoaA.name = "Wiliamis"; // Wiliamis  
-pessoaB.name = "Filipe" // Filipe
+    person.name = name;
+    person.lastName = lastName;
 
+    function fullName() {
+        return `Nome completo: ${person.name} ${person.lastName}.`; 
+    }
+
+    person.fullName = fullName;
+
+    return person;
+}
 
 function fabricarPessoa(nome: string, sobrenome: string) {
-    let pessoa = {};
+    let pessoa: IPerson = {};
 
-    pessoa.nome = nome;
-    pessoa.sobrenome = sobrenome;
+    pessoa.name = nome;
+    pessoa.lastName = sobrenome;
 
 
     function nomeCompleto() {
-        return `${pessoa.nome} ${pessoa.sobrenome}`;
+        return `${pessoa.name} ${pessoa.lastName}`;
     }
 
-    pessoa.nomeCompleto = nomeCompleto;
+    pessoa.fullName = nomeCompleto;
 
     return pessoa;
 }
+
+let pessoaA: IPerson = criaObjeto('Teste1', 'teste1@gmail.com'); // {} objeto em branco
+let pessoaB: IPerson = criaObjeto ('Teste2', 'teste2@gmail.com'); // {} objeto em branco 
+
+pessoaA.name = "Wiliamis"; // Wiliamis  
+pessoaA.email = "dev.enzo@gmail.com"
+pessoaB.name = "Filipe" // Filipe
+
 
 pessoaA = fabricarPessoa('Wiliamis', 'Oliveira');
 pessoaB = fabricarPessoa('Filipe', 'Deschamps');
