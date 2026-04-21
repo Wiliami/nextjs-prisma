@@ -1,23 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { auth } from '@/lib/auth'
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/client';
 import { Prisma } from '@/generated/prisma/client';
-import { createUser } from '@/functions/create-user'
+import { createUser } from '@/functions/create-user';
+import { createUserSchema } from '@/types/schemas';
 
 export async function POST(req: NextRequest) {
     try {
-        const session = auth.api.getSession({
-            headers: req.headers
-        });
-    
-        if(!session) {
-            return NextResponse.json(
-                { error: 'Unauthorized' },
-                { status: 401 });
-        }
-
-        const { name, email, role } = await req.json()
+        const { name, email, role } = createUserSchema.parse(req.json)
 
         const user = await createUser(name, email, role);
 
