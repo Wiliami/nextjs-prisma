@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
-import { Prisma } from '@/generated/prisma/client';
 import { createUser } from '@/functions/create-user';
 import { createUserSchema } from '@/types/schemas';
+import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma/client/runtime/client';
 
 export async function POST(req: NextRequest) {
     try {
-        const { name, email, role } = createUserSchema.parse(req.json)
+        const { name, email, role } = createUserSchema.parse(req.json);
 
         const user = await createUser(name, email, role);
 
@@ -16,7 +16,14 @@ export async function POST(req: NextRequest) {
     } catch (err) {
         console.error('Erro ao cadastrar usuário:', err)
 
-        if(err instanceof Prisma.PrismaClientKnownRequestError) {
+        if (err instanceof BaseError) {
+            return NextResponse.json(
+                { error: err.message },
+                { status: err.statusCode },
+            )
+        }
+
+        if(err instanceof PrismaClientKnownRequestError) {
             if(err.code === 'P2002') {
                 return NextResponse.json(
                     { err: 'E-mail já existe.' },
@@ -24,6 +31,15 @@ export async function POST(req: NextRequest) {
                 )
             }
         }
+
+
+        // if (err instanceof PrismaClientValidationError) {
+        //     const fields = parsePrismaValidationFields(err.message)
+        //     return NextResponse.json(
+        //         { error: 'Dados inválidos. Verifique os campos enviados.', fields },
+        //         { status: 400 },
+        //     )
+        // }
 
         return NextResponse.json(
             { err: 'Internal server error' },
@@ -53,10 +69,10 @@ export async function GET(req: NextRequest) {
 
         return NextResponse.json(users);
 
-    } catch (error) {
-        console.error('Falha: ', error)
+    } catch (err) {
+        console.error('Internal server error:', err)
          return NextResponse.json(
-            { error: 'Failed to fecth users.' },
+            { error: 'Internal server error' },
             { status: 500 }
         )
     }
