@@ -161,3 +161,52 @@ function factoryCreateUser(name: string, age: string) {
 // Animal.prototype.falar = function() {
 //     return this.nome + ' está falando.';
 // }
+
+
+// class Person {
+//     constructor(name, lastname) {
+//         this.name = name;
+//         this.lastname = lastname;
+//     }
+// }
+
+// function Person() {
+
+// }
+
+
+function factoryPerson(name: string, lastname: string) {
+    let person;
+
+    person.name = name;
+    person.lastname = lastname;
+
+    function nomeCompleto() {
+        return `${this.name} ${this.lastname}`;
+    }
+
+    person.nomeCompleto = nomeCompleto;
+
+    return person;
+}
+
+const wiliamis = factoryPerson('Wiliamis', 'Oliveira');
+console.log(wiliamis)
+
+
+const Cozinha = (estilo: string) => `Cozinha ${estilo}`;
+const Banheiro = (tipo: string) => `Banheiro do tipo ${tipo}`;
+const Quarto = (tipo: string) => `Quarto ${tipo}`; 
+
+class Imovel {
+    constructor(endereco) {
+        this.endereco = endereco;
+    }
+}
+
+const minhaCasa = new Imovel('Rua Abc');
+minhaCasa.cozinha = Cozinha('Moderna');
+minhaCasa.banheiro = Banheiro('Lavabo');
+minhaCasa.quarto = Quarto('Completo');
+minhaCasa.suite = Quarto('Suite');
+

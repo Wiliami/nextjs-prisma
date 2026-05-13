@@ -2,7 +2,7 @@
 class EsquemaTatico {
     soccerPlayer;
     position;
-    actions: string;
+    actions: string | undefined;
 
     constructor(soccerPlayer: string, position: string) {
         this.soccerPlayer = soccerPlayer;
