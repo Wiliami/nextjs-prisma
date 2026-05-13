@@ -2,7 +2,7 @@ import { prisma } from '@/lib/prisma';
 import { EmailAlreadyExistsError } from './errors/email-already-exists';
 import { NextResponse } from 'next/server';
 
-export async function createUser(email: string, name: string, role: string) {
+export async function createUser(name: string, email: string, role: string) {
     if(!name || !email || !role) {
         return NextResponse.json(
             { error: 'Campos obrigatórios' },
