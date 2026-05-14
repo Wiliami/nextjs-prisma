@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { createUser } from '@/functions/create-user';
 import { createUserSchema } from '@/types/schemas';
 import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma/client/runtime/client';
+import { BaseError } from '@/functions/errors/base-error'
 
 export async function POST(req: NextRequest) {
     try {
