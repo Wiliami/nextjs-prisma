@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
-export async function PUT(req: NextRequest, 
-    { params }: { params: { id: string }}
+export async function PUT(req: NextRequest,
+    { params }: { params: Promise<{ id: string }> }
 ) {
 
-    const { id } = params
+    const { id } = await params
     const body = await req.json()
     
     try {
@@ -33,8 +33,8 @@ export async function PUT(req: NextRequest,
     
 }
 
-export async function PATCH(req: NextRequest, 
-    { params }: { params: { id: string }}
+export async function PATCH(req: NextRequest,
+    { params }: { params: Promise<{ id: string }> }
 ) {
 
     const { id } = await params
@@ -66,7 +66,7 @@ export async function PATCH(req: NextRequest,
 }
 
 export async function DELETE(req: NextRequest,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const { id } = await params;
