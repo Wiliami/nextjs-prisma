@@ -7,57 +7,52 @@ interface Repo {
     description: string
 }
 
-export default function Tags() {
-    const [repos, setRepos] = useState<Repo[]>([]);
-    // const [filteredRepos, setFilteredRepos] = useState<Repo[]>([]);
+export default function ReposPage() {
+    const [repos, setRepos] = useState<Repo[]>([])
     const [search, setSearch] = useState('');
-
-    console.log('Renderizou');
 
     useEffect(() => {
         fetch('https://api.github.com/users/Wiliami/repos')
         .then(response => response.json())
         .then(data => setRepos(data))
     }, [])
-
-    const filteredRepos = search.length > 0 
-        ? repos.filter(repo => repo.name.includes(search))
-        : [];
-
-    //  useEffect(() => {
-    //     if(search.length) {
-    //         setFilteredRepos(repos.filter(repo => repo.name.includes(search)));
-    //     }
-    // }, [search])
-
     
+     useEffect(() => {
+        if(search.length > 0) {
+            repos.filter(repo => repo.name.includes(search))
+        }
+    }, [search])
+
+
     return (
         <div>
-            <input 
-                type='text'
-                name="search" 
-                placeholder='Buscar...' 
+            <input
+                name="search"
+                type="text"
+                placeholder='Buscar...'
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
             />
 
-            { search.length > 0 ? (
-                <ul>
-                    {filteredRepos.map(repo => {
-                        return (    
-                            <li key={repo.name}>{repo.name}</li>
-                        )
-                    })}
-                </ul>
-            ) : (
-                <ul>
-                    {repos.map(repo => {
-                        return (
-                            <li key={repo.name}>{repo.name}</li>
-                        )
-                    })}
-                </ul>
-            )}
+            <ul>
+            {repos.map((repo: any) => {
+                return (
+                    <li key={repo.name}>{repo.name}</li>
+                )
+            })}
+            </ul>
         </div>
-    ) 
-}
+    )
+} 
+
+
+
+
+
+
+/*
+1 - Buscar repositórios do github
+2 - Exibir repositórios na página 
+3 - Filtrar lista
+4 - Derived State 
+*/
