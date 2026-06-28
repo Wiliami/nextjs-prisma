@@ -1,67 +1,30 @@
-'use client'
+export default function App() {   
+    const products = [
+        { id: 1, name: 'Mouse', category: 'Periféricos', price: 80 },
+        { id: 2, name: 'Teclado', category: 'Periféricos', price: 100 },
+        { id: 3, name: 'Headset', category: 'Periféricos', price: 150 },
+        { id: 4, name: 'Monitor', category: 'Monitores', price: 600 },
+        { id: 5, name: 'Monitor Samsung', category: 'Monitores', price: 20 },
+        { id: 5, name: 'Mesa deslizadora', category: 'Acessórios', price: 20 },
+    ]
 
-import { useState, useEffect } from 'react'
+    const groupedProducts = Object.groupBy(
+        products,
+        (product) => product.category
+    )
 
-interface Repo {
-    name: string
-    description: string
-}
+    // if(groupedProducts[index].category === 'Periféricos') {
+    //     console.log(groupedProducts[index].category)
+    // }
 
-export default function App() {
-    const [repos, setRepos] = useState<Repo[]>([])
-    // const [filteredRepos, setFilteredRepos] = useState<Repo[]>([])
-    const [search, setSearch] = useState('')
-
-    console.log('Renderizou')
-
-    useEffect(() => {
-        fetch('https://api.github.com/users/Wiliami/repos')
-        .then(response => response.json())
-        .then(data => setRepos(data))
-    }, [])
-
-
-    const filteredRepos = search.length > 0
-    ? repos.filter(repo => repo.name.includes(search))
-    : [];
+    console.log('Periféricos: ', groupedProducts.Periféricos[0].name)
+    console.log('Monitores: ', groupedProducts.Monitores)
+    console.log('Acessórios: ', groupedProducts.Acessórios)
 
 
-    // useEffect(() => {
-    //     if(search.length) {
-    //         setFilteredRepos(repos.filter(repo => repo.name.includes(search)))
-    //     }
-    // }, [search])
-
+    // agrupar 
+    
     return (
-        <div>
-            <input 
-                type="text"
-                name='search'
-                placeholder='Buscar...'
-                onChange={(e) => setSearch(e.target.value)}
-                value={search}
-            />
-
-            {
-                search.length > 0
-                ? (
-                    <ul>
-                        {filteredRepos.map(repo => {
-                            return (
-                                <li key={repo.name}>{repo.name}</li>
-                            )
-                        })}
-                    </ul>
-                ) : (
-                    <ul>
-                        {repos.map(repo => {
-                            return (
-                                <li key={repo.name}>{repo.name}</li>
-                            )
-                        })}
-                    </ul>
-                )
-            }
-        </div>
+     <h1>{groupedProducts.Periféricos[0].id}</h1>
     )
 }
