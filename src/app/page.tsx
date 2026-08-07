@@ -1,5 +1,3 @@
-'use client'
-
 import { useEffect, useState } from 'react';
 
 interface Repo {
@@ -54,12 +52,3 @@ export default function App() {
         </div>
     )
 }
-
-
-/* 
-1 - Buscar dados de uma API externa
-2 - Exibir os dados na tela
-3 - Crir botão de pesquisa
-4 - Pegar o valor do input
-5 - Filtrar dados
-*/
