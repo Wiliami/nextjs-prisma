@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lint:dev"
+    "lint:dev": "",
     "test": "jest"
   },
   "dependencies": {
